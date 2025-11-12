@@ -191,7 +191,7 @@ public class RoomAdventure {
 
         currentRoom = room1;
     }
-        }
+}
 
 
 
