@@ -1,6 +1,5 @@
 
 import java.util.Scanner;
-import java.util.Random;
 
 public class RoomAdventure {
     // class variables
@@ -63,8 +62,13 @@ public class RoomAdventure {
         for (int i=0; i < directions.length; i++){
             // for strings we use .equals() to compare
             if (noun.equals(directions[i])){
-                currentRoom = rooms[i];
-                status = "Changed Room";
+                if (rooms[i] != null){
+                    currentRoom = rooms[i];
+                    status = "Changed Room";
+                }
+                else {
+                    status = "That way is blocked look for a different way";
+                }
             }
         }
     }
