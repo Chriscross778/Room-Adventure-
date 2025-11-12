@@ -49,6 +49,7 @@ public class RoomAdventure {
                     break;
                 default: status = DEFAULT_STATUS;
             }
+            System.out.println(status);
 
         }
     }
@@ -102,18 +103,20 @@ public class RoomAdventure {
     }
 
     public static void setupGame() {
-        Room room1 = new Room("Room 1");
-        Room room2 = new Room("Room 2");
+        Room room1 = new Room("Lobby");
+        Room room2 = new Room("Pool Room");
+        Room room3 = new Room("Cafeteria");
+        Room room4 = new Room("Hallway");
 
         // Room 1 setup
-        String[] room1ExitDirections = {"east", "south"};
-        Room[] room1ExitDestinations = {room2, null}; // assuming south leads nowhere
+        String[] room1ExitDirections = {"east", "south", "north"};
+        Room[] room1ExitDestinations = {room2, room3, null}; // north leads nowhere
         String[] room1Items = {"chair", "desk"};
         String[] room1ItemDescriptions = {
-            "It is a chair, there is a nail on it.",
-            "It's a desk, there is an apple on it."
+            "It is a chair looks old",
+            "It's a desk, there is an key on it."
         };
-        String[] room1Grabbables = {"nail", "apple"};
+        String[] room1Grabbables = {"key"};
 
         room1.setExitDirections(room1ExitDirections);
         room1.setExitDestinations(room1ExitDestinations);
@@ -121,20 +124,53 @@ public class RoomAdventure {
         room1.setItemDescription(room1ItemDescriptions);
         room1.setGrabbables(room1Grabbables);
 
-        String[] room2ExitDirections = {"west", "north"};
-        Room[] room2ExitDestinations = {room1, null}; // assuming north leads nowhere
-        String[] room2Items = {"chair", "desk"};
+
+        String[] room2ExitDirections = {"west", "south"};
+        Room[] room2ExitDestinations = {room1, room4}; 
+        String[] room2Items = {"pool", "tower"};
         String[] room2ItemDescriptions = {
-            "It is a chair",
-            "It's a desk, there is an key on it."
+            "It's an empty pool look likes there is a boltcutter down there",
+            "The tower looks unstable maybe I should not go up there"
         };
-        String[] room2Grabbables = {"key"};
+        String[] room2Grabbables = {"boltcutter"};
 
         room2.setExitDirections(room2ExitDirections);
         room2.setExitDestinations(room2ExitDestinations);
         room2.setItems(room2Items);
         room2.setItemDescription(room2ItemDescriptions);
         room2.setGrabbables(room2Grabbables);
+
+
+        String[] room3ExitDirections = {"east", "north"};
+        Room[] room3ExitDestinations = {room4, room1}; 
+        String[] room3Items = {"Buffet", "trash"};
+        String[] room3ItemDescriptions = {
+            "There is rotted food here ew",
+            "There is a bottle here looks clean"
+        };
+        String[] room3Grabbables = {"bottle"};
+
+        room3.setExitDirections(room3ExitDirections);
+        room3.setExitDestinations(room3ExitDestinations);
+        room3.setItems(room3Items);
+        room3.setItemDescription(room3ItemDescriptions);
+        room3.setGrabbables(room3Grabbables);
+
+
+        String[] room4ExitDirections = {"west", "north"};
+        Room[] room4ExitDestinations = {room3, room2}; 
+        String[] room4Items = {"table", "lamp"};
+        String[] room4ItemDescriptions = {
+            "A nice and sturdy table",
+            "A lamp sadly it doesn't work"
+        };
+        String[] room4Grabbables = {};
+
+        room4.setExitDirections(room4ExitDirections);
+        room4.setExitDestinations(room4ExitDestinations);
+        room4.setItems(room4Items);
+        room4.setItemDescription(room4ItemDescriptions);
+        room4.setGrabbables(room4Grabbables);
 
         currentRoom = room1;
     }
@@ -194,7 +230,7 @@ class Room {
         return grabbables;
     }
 
-    @Override
+    
     public String toString() {
         String result = "\nLocation: " + name;
 
