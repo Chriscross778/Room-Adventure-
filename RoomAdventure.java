@@ -125,7 +125,7 @@ public class RoomAdventure {
         room1.setItemDescription(room1ItemDescriptions);
         room1.setGrabbables(room1Grabbables);
 
-
+        // room 2
         String[] room2ExitDirections = {"west", "south"};
         Room[] room2ExitDestinations = {room1, room4}; 
         String[] room2Items = {"pool", "tower"};
@@ -141,9 +141,9 @@ public class RoomAdventure {
         room2.setItemDescription(room2ItemDescriptions);
         room2.setGrabbables(room2Grabbables);
 
-
-        String[] room3ExitDirections = {"east", "north"};
-        Room[] room3ExitDestinations = {room4, room1}; 
+        // room 3
+        String[] room3ExitDirections = {"east", "north", "west"};
+        Room[] room3ExitDestinations = {room4, room1, room5}; 
         String[] room3Items = {"Buffet", "trash"};
         String[] room3ItemDescriptions = {
             "There is rotted food here ew",
@@ -157,7 +157,7 @@ public class RoomAdventure {
         room3.setItemDescription(room3ItemDescriptions);
         room3.setGrabbables(room3Grabbables);
 
-
+        // room 4
         String[] room4ExitDirections = {"west", "north"};
         Room[] room4ExitDestinations = {room3, room2}; 
         String[] room4Items = {"table", "lamp"};
@@ -172,6 +172,22 @@ public class RoomAdventure {
         room4.setItems(room4Items);
         room4.setItemDescription(room4ItemDescriptions);
         room4.setGrabbables(room4Grabbables);
+
+        // room 5 
+        String[] room5ExitDirections = {"east", "north"};
+        Room[] room5ExitDestinations = {room3, null}; 
+        String[] room5Items = {"gate", "field"};
+        String[] room5ItemDescriptions = {
+            "The gate looks like it is lock and has chains around it",
+            "There a flower field it looks great who would have known there is a flower I could grab"
+        };
+        String[] room5Grabbables = {"flower"};
+
+        room5.setExitDirections(room5ExitDirections);
+        room5.setExitDestinations(room5ExitDestinations);
+        room5.setItems(room5Items);
+        room5.setItemDescription(room5ItemDescriptions);
+        room5.setGrabbables(room5Grabbables);
 
         currentRoom = room1;
     }
