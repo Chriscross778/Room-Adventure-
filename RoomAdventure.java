@@ -107,6 +107,7 @@ public class RoomAdventure {
         Room room2 = new Room("Pool Room");
         Room room3 = new Room("Cafeteria");
         Room room4 = new Room("Hallway");
+        Room room5 = new Room("Garden");
 
         // Room 1 setup
         String[] room1ExitDirections = {"east", "south", "north"};
